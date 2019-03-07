@@ -1,18 +1,29 @@
-# DirectX9�̃R�[�h��SDL�ŏ�����������+��
+# DirectX9のコードをSDLで書き直す試み+α
 
-## ��肽������
+## やりたいこと
 
-�ߋ��ɍ�����K��STG(2011�N?)��Windows10+GTX1050Ti�i�����g���Ă�PC�j�œ����悤�ɂ���B
+過去に作った習作STG(2011年?)をWindows10+GTX1050Ti（＝今使ってるPC）で動くようにする。
 
-## ��肽������
+### 手順
 
-* DirectX9�ŕ`��&�����o�͂��Ă����Q�[����i��SDL2�Œu��������
-  * ����悭��Linux�ł��������Ă݂���
+* DirectX9で描画&音声出力&パッド対応していたゲーム作品をSDL2で置き換える
+  * せっかくだしLinuxでも動かしてみたい
 
-## ���ӓ_
+### 工程表
 
-1. VisualStudio 2017 community �́u��̃v���W�F�N�g�v���������v���W�F�N�g���ƁA  
-   �t�@�C����������Game�N���X��GameLoop���\�b�h�Ɠ��͌��m�̃C�x���g�L���[�ǂݏo�����[�v��������  
-   ���s���Œ��ꒃ�d���Ȃ�B
-   �������@�Ƃ��Ă̓v���W�F�N�g�\���ŐV�����uWin32�v�����B  
-  �������͒������Bx64�\���ł��܂������Ȃ����R�𒲂ׂ�
+あとで自宅Redmineに反映させること
+
+3/4: 作業開始
+↓
+3/6: 下記の不具合に時間が取られる。
+↓　　OpenGLで書き換える段階まで来た。
+↓
+3/16:一応の目安(リクナビさんへの連絡含め)
+
+### 注意点
+
+1. VisualStudio 2017 community の「空のプロジェクト」から作ったプロジェクトだと、  
+   ファイル分割したGameクラスのGameLoopメソッドと入力検知のイベントキュー読み出しループが原因で  
+   実行が滅茶苦茶重くなる。
+   解決方法としてはプロジェクト構成で新しく「Win32」を作る。  
+  ※原因は調査中。x64構成でうまくいかない理由を調べる
